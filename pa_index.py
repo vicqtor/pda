@@ -11,20 +11,24 @@ def notify(info):
     notif.show()
     notif.set_timeout(10)
 
+routines = json.loads(cfgs)['routines']
+for x in y:
+	set times - info + time
+	
 while True:
 	brk = '/'
-    ctime = datetimdatetime.now()
-    routines = json.loads(cfgs)['routines']
+    ctime = datetime.datetime.now()
 	times = json.loads(cfgs)['times']
 
-    for routine in times:
-		if routine.startswith(brk):
-			if ctime.hour == datetime.datetime.strptime(routine[len(brk):], '%H%M').hour:
-				info = ''
+    for rtn_time in times:
+		if rtn_time.startswith(brk):
+			rtn = rtn_time[len(brk):]
+			if ctime.hour == datetime.datetime.strptime(rtn, '%H%M').hour:
+				info = json.loads(cfgs)['routines']
         
-        elif brk in routine:
-            rtntimecount, rtntimetype = routine.split(brk) 
-			info = 'every ' + rtntimecount + ' ' + rtntimetype + '\n' + routines[rtntimes.index(routine)].split(':')[1]
+        elif brk in rtn_time:
+            rtntimecount, rtntimetype = rtn_time.split(brk) 
+			info = 'every ' + rtntimecount + ' ' + rtntimetype + '\n' + rtn_time[times.index(rtn_time)].split(':')[1]
         
 		else:
             rtnjustdate, rtnjustinfo = routines[rtntimes.index(routine)].split(':')
@@ -35,10 +39,6 @@ while True:
                 rtncap, rtninfo = 'schedule', str(rtnjustdate) + '\n' + str(rtnjustinfo)
                 newrtnstatus = routines[rtntimes.index(str(routine))].replace('active', 'expired')
                 routines[rtntimes.index(str(routine))] = newrtnstatus
-
-                update('routines', routines)
-                update('ntfytt', rtncap)
-                update('ntfyinfo', rtninfo)
 			
 			info = ''
 		
