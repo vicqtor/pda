@@ -14,7 +14,7 @@ def notify(info):
 caps = json.loads(cfgs)['caps']
 routines = json.loads(cfgs)['routines']
 
-for x in y:
+for routine in routines:
 	set times - info + time
 	
 while True:
