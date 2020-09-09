@@ -24,7 +24,7 @@ while True:
         cur_data['times'][routines.index(routine)] = routine.split(':')[0]
         
         with open('pa_cfgs.json', 'w') as updt:
-            updt.write(json.dumps(cur_data, indent = 4))
+            updt.write(json.dumps(cur_data, indent = 2))
 	
 	for rtn_time in times:
 		index = int(times.index(rtn_time))
