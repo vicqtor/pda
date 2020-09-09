@@ -35,8 +35,7 @@ while True:
 			
 		else:
 			rtnjustdate, rtnjustinfo = routines[index].split(':')
-			stime = datetime.datetime.strptime(routine, '%d.%m.%y.%H.%M')
-			rtnjustdate = rtnjustdate.replace('active', '')     
+			stime = datetime.datetime.strptime(routine, '%d.%m.%y.%H.%M') 
 			
 			if ctime.year == stime.year and ctime.month == stime.month and ctime.day == stime.day and ctime.hour == stime.hour and ctime.minute == stime.minute:
 				info = rtnjustdate + '\n' + rtnjustinfo
