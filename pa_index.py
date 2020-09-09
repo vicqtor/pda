@@ -12,18 +12,19 @@ def notify(info):
 	notif.set_timeout(10)
 
 caps = json.loads(cfgs)['caps']
-routines = json.loads(cfgs)['routines']
 
-for routine in routines:
-	currentdata = json.loads(readconfigfile())
-	currentdata[str(configtoset)] = newvalue
-	with open(datacore['jsonfilecap'], 'w') as modifyjfile:
-		modifyjfile.write(json.dumps(currentdata, indent = 4))
-	
 while True:
 	brk = '/'
 	ctime = datetime.datetime.now()
+    routines = json.loads(cfgs)['routines']
 	times = json.loads(cfgs)['times']
+    
+    for routine in routines:
+        cur_data = json.loads(cfgs)
+        cur_data['times'][routines.index(routine)] = routine.split(':')[0]
+        
+        with open('pa_cfgs.json', 'w') as updt:
+            updt.write(json.dumps(cur_data, indent = 4))
 	
 	for rtn_time in times:
 		index = int(times.index(rtn_time))
