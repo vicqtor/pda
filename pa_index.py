@@ -11,16 +11,17 @@ def update(configtoset, newvalue):
 	
 training_sets_inputs = array(json.loads(cfg)['training_sets_inputs'])
 
-    notify2.init('new notif')
+def notify(info):
+	notify2.init('new notif')
         notif = notify2.Notification(str(title), str(info), icon = data('ntfyico')) # notif.set_urgency(notify2.URGENCY_CRITICAL)
         notif.show()
         notif.set_timeout(dur)#, time.sleep(60)
 
 while True:
     ctime = datetimdatetime.now()
-    routines = data('routines')
-    rtntimes = data('routinestimes')
-    rtntimebr = data('rtntimebreak')
+    routines = json.loads(cfg)['training_sets_inputs']   data('routines')
+    rtntimes = json.loads(cfg)['training_sets_inputs']   data('routinestimes')
+    rtntimebr = json.loads(cfg)['training_sets_inputs']   data('rtntimebreak')
 
     for routine in rtntimes:
         if rtntimebr in routine:
