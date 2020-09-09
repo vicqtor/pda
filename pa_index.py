@@ -15,8 +15,10 @@ caps = json.loads(cfgs)['caps']
 routines = json.loads(cfgs)['routines']
 
 for routine in routines:
-	set times - info + time
-	update
+	currentdata = json.loads(readconfigfile())
+	currentdata[str(configtoset)] = newvalue
+	with open(datacore['jsonfilecap'], 'w') as modifyjfile:
+		modifyjfile.write(json.dumps(currentdata, indent = 4))
 	
 while True:
 	brk = '/'
