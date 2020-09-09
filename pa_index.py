@@ -11,7 +11,9 @@ def notify(info):
     notif.show()
     notif.set_timeout(10)
 
+caps = json.loads(cfgs)['caps']
 routines = json.loads(cfgs)['routines']
+
 for x in y:
 	set times - info + time
 	
@@ -21,25 +23,22 @@ while True:
 	times = json.loads(cfgs)['times']
 
     for rtn_time in times:
+		index = int(times.index(rtn_time))
 		if rtn_time.startswith(brk):
 			rtn = rtn_time[len(brk):]
 			if ctime.hour == datetime.datetime.strptime(rtn, '%H%M').hour:
-				info = json.loads(cfgs)['routines']
+				info = routines[index].split(':')[1]
 
 		elif brk in rtn_time:
-			rtntimecount, rtntimetype = rtn_time.split(brk) 
-			info = 'every ' + rtntimecount + ' ' + rtntimetype + '\n' + rtn_time[times.index(rtn_time)].split(':')[1]
+			count, typ = rtn_time.split(brk) 
+			info = 'every ' + count + ' ' + typ + '\n' + routines[index].split(':')[1]
 
 		else:
-			rtnjustdate, rtnjustinfo = routines[rtntimes.index(routine)].split(':')
+			rtnjustdate, rtnjustinfo = routines[index].split(':')
 			stime = datetime.datetime.strptime(routine, '%d.%m.%y.%H.%M')
 			rtnjustdate = rtnjustdate.replace('active', '')     
 
 			if ctime.year == stime.year and ctime.month == stime.month and ctime.day == stime.day and ctime.hour == stime.hour and ctime.minute == stime.minute:
-				rtncap, rtninfo = 'schedule', str(rtnjustdate) + '\n' + str(rtnjustinfo)
-				newrtnstatus = routines[rtntimes.index(str(routine))].replace('active', 'expired')
-				routines[rtntimes.index(str(routine))] = newrtnstatus
-
-			info = ''
-
+				info = rtnjustdate + '\n' + rtnjustinfo
+				
 		notify(info)
