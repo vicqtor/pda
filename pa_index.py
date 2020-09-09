@@ -16,6 +16,7 @@ routines = json.loads(cfgs)['routines']
 
 for routine in routines:
 	set times - info + time
+	update
 	
 while True:
 	brk = '/'
