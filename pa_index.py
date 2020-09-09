@@ -34,10 +34,9 @@ while True:
 			info = 'every ' + count + ' ' + typ + '\n' + routines[index].split(':')[1]
 			
 		else:
-			rtnjustdate, rtnjustinfo = routines[index].split(':')
-			stime = datetime.datetime.strptime(routine, '%d.%m.%y.%H.%M') 
+			tm = datetime.datetime.strptime(rtn_time, '%d.%m.%y.%H.%M') 
 			
-			if ctime.year == stime.year and ctime.month == stime.month and ctime.day == stime.day and ctime.hour == stime.hour and ctime.minute == stime.minute:
-				info = rtnjustdate + '\n' + rtnjustinfo
+			if ctime.year == tm.year and ctime.month == tm.month and ctime.day == tm.day and ctime.hour == tm.hour and ctime.minute == tm.minute:
+				info = routines[index].split(':')[0] + '\n' + routines[index].split(':')[1]
 				
 		notify(info)
