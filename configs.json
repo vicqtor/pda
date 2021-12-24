@@ -1,2 +1,18 @@
 {
+      "routines": [
+        "ec1.h;hour_test",
+        "ec1.m;minute_test",
+        "es0600;time_test",
+        "ot12.12.20.13.30;onetime_test"
+    ],
+    "rtntimetypes": [
+        "s",
+        "m",
+        "h"
+    ],
+    "rtntimecaps": [
+        "seconds",
+        "minutes",
+        "hours"
+    ],
 }
