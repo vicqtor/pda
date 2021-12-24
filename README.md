@@ -5,7 +5,22 @@
 <hr>
 <h4> how to </h4>
 edit the config file
-"routines": set new routines/schedules as follows;
-1. 
+
+    "routines": [
+        "ec1.h;hour_test",
+        "ec1.m;minute_test",
+        "es0600;time_test",
+        "ot12.12.20.13.30;onetime_test"
+    ],
+    "rtntimetypes": [
+        "s",
+        "m",
+        "h"
+    ],
+    "rtntimecaps": [
+        "seconds",
+        "minutes",
+        "hours"
+    ],
 
 
